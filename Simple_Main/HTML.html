@@ -1,0 +1,1131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Simple</title>
+   <style type ="text/css">
+               /* CSS for the navigation bar */
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: 'Arial', sans-serif; 
+        }
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+        }
+        .navbar {
+            justify-content: left;
+            display: flex;
+            align-items: center;
+            background-color:transparent ;
+            padding: 0px;
+            height: 120px;
+            border-bottom: 2px  solid gray;
+        }
+        
+        .Simple{
+	    justify-content: left;
+            height: 120px;
+            width: 100px;
+            margin-top: 10px;
+            margin-left: 20px;
+        }
+       
+    
+        
+        .navbar .menu {
+            display: flex;
+            flex: 1;
+            justify-content: left;
+        }
+        .sidebar {
+            width: 250px;
+            background-color: #f1f1f1;
+            height: 100vh;
+            overflow-y: auto;
+            padding-top: 20px;
+            border-right: 1px solid #ccc;
+        }
+        
+        .content {
+            flex-grow: 1;
+            padding: 20px;
+        }
+        /* menu start from here */
+
+        .menu ul{
+            display: flex;
+            margin: 0;
+            padding: 0;
+            gap: 30px;
+            margin-top: 40px;
+            margin-left: 30px;
+        }
+
+        .menu li {
+            font-size: 22px;
+            padding: 8px 15px;
+            list-style: none;
+            padding: 10px 20px;
+            text-align: left;
+            border-bottom: transparent solid 2px;
+            flex-wrap: nowrap;
+            
+        }   
+        .menu li:hover {
+            
+            border-bottom: orange solid 2px;
+            
+        }
+        .menu a {
+            text-decoration: none;
+            color: black;
+            font-weight: lighter;
+            
+        }
+
+        /* Dropdown menu styles */
+    .navbar .menu ul .dropdown {
+    display: none;
+  position: absolute;
+  background-color: #f9f9f9;
+  min-width: 160px;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  z-index: 1;
+  transition: all 0.3s ease;
+  border-radius: 8px;
+  opacity: .9; /* Initially hidden */
+  transform: translateY(-2px); /* Slide up effect */
+  padding: 0px ;
+  margin: 0px;
+}
+/* Show dropdown on hover */
+.menu ul li:hover .dropdown {
+    display: block; /* Show dropdown when hovering over parent */
+}
+.contact-area {
+    display: flex; /* Use Flexbox for layout */
+    align-items: center; /* Center align items vertically */
+    justify-content: flex-end; /* Align the contact area to the right */
+    gap: 40px; /* Add spacing between contact items */
+    margin-right: 40px; /* Add spacing from the right edge */
+    font-size: 20px; /* Adjust font size */
+    font-family: 'Arial', sans-serif; /* Clean font */
+}
+
+.contact-item {
+    display: flex; /* Use Flexbox for layout */
+    align-items: center; /* Center align items vertically */
+    gap: 40px; /* Add spacing between icon and text */
+    background-color: red; /* Light background for styling */
+    padding: 10px 15px; /* Add padding for spacing */
+    border-radius: 8px; /* Rounded corners */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Add shadow for styling */
+    transition: transform 0.3s ease, box-shadow 0.3s ease; /* Smooth hover effect */
+    cursor: pointer; /* Change cursor to pointer */
+}
+
+.contact-item:hover {
+    transform: translateY(-5px); /* Lift the item on hover */
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2); /* Add a deeper shadow on hover */
+    background-color: #ff5722; /* Change background color on hover */
+    color: white; /* Change text color on hover */
+}
+
+.contact-item i {
+    font-size: 20px; /* Icon size */
+    color: white(235, 213, 114); /* Icon color */
+    transition: color 0.1s ease; /* Smooth color change */
+}
+
+.contact-item:hover i {
+    color: white; /* Change icon color on hover */
+}
+
+
+/* CSS for the marquee */
+.marquee {
+    position: relative;
+    background: orangered; /* Gradient background */
+    color:black; /* White text color */
+    font-size: 20px; /* Slightly larger font size */
+    font-weight: bold; /* Bold text */
+    padding: 5px 0; /* Add padding for spacing */
+    border-top: 2px solid #ff5722; /* Top border for styling */
+    border-bottom: 2px solid #ff5722; /* Bottom border for styling */
+    text-align: center;
+    overflow: hidden; /* Hide overflow */
+    margin-top: 0px; /* Adjust margin as needed */
+    padding: 0px 0; /* Add padding for spacing */
+}
+
+.marquee-content {
+    display: inline-block;
+    animation: marquee-scroll 10s linear infinite; /* Smooth scrolling animation */
+    white-space: nowrap; /* Prevent text wrapping */
+}
+/* Video Section */
+.video-section {
+    position: relative; /* Ensure the container is positioned relative */
+    width: 100%; /* Full width */
+    height: auto; /* Adjust height automatically */
+    overflow: hidden; /* Hide overflow */
+}
+
+.video-container {
+    position: relative; /* Position relative for overlay text */
+    width: 100%; /* Full width */
+    height: auto; /* Maintain aspect ratio */
+}
+
+.video-container video {
+    width: 100%; /* Make video responsive */
+    height: auto; /* Maintain aspect ratio */
+    display: block; /* Remove extra spacing */
+    z-index: 1;
+}
+
+.video-overlay-text {
+    position: absolute; /* Position text over the video */
+    top: 10%; /* Center vertically */
+    left: 51%; /* Center horizontally */
+    transform: translate(-50%, -50%); /* Adjust for perfect centering */
+    width: 100%; /* Limit width for better readability */
+    color: white; /* White text color */
+    text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.7); /* Add shadow for better readability */
+    font-family: 'Arial', sans-serif; /* Clean font */
+    z-index: 2; /* Ensure it appears above the video */
+    font-size: large;
+}
+
+.text-slider {
+    position: relative;
+    height: 80px; /* Adjust height based on text size */
+    overflow: hidden; /* Hide overflowing text */
+}
+
+.text-slide {
+    color:white;
+    position: absolute;
+    width: 50%; /* Full width */
+    animation: slideText 15s infinite; /* Apply animation */
+    font-size: 60px; /* Adjust font size */
+    font-weight: bold; /* Bold text */
+    opacity: 0; /* Start with hidden text */
+}
+
+.text-slide:nth-child(1) {
+    animation-delay: 0s; /* First slide starts immediately */
+}
+
+.text-slide:nth-child(2) {
+    animation-delay: 5s; /* Second slide starts after 3 seconds */
+}
+
+.text-slide:nth-child(3) {
+    animation-delay: 10s; /* Third slide starts after 6 seconds */
+}
+
+/* Keyframes for Text Animation */
+@keyframes slideText {
+    10% {
+       
+        opacity: 0; /* Hidden */
+        transform: translateY(20px); /* Slide in from below */
+    }
+    10%, 30% {
+        opacity: 1; /* Fully visible */
+        transform: translateY(0); /* Stay in place */
+    }
+    40% {
+        opacity: 0; /* Fade out */
+        transform: translateY(-20px); /* Slide out above */
+    }
+    100% {
+        opacity: 0; /* Hidden */
+        transform: translateY(-20px); /* Stay out of view */
+    }
+}
+
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    color: white; /* Text color for content over the video */
+    z-index: 1; /* Ensure content appears above the video */
+}
+
+/*css for the about us section*/
+
+.about-us {
+    padding: 150px 120px; /* Add padding for spacing */
+    background-color: #f4f4f4; /* Light gray background */
+    color: #333; /* Dark text color */
+    font-family: 'Arial', sans-serif; /* Clean font */
+    line-height: 1.6; /* Improve readability */
+    margin-top: 0px;
+    scroll-margin-top: 120px; /* Navbar ke height ke hisaab se adjust karein */
+}
+
+
+.about-us-content {
+    display: flex; /* Use Flexbox for layout */
+    align-items: center; /* Center align items vertically */
+    justify-content: space-between; /* Add space between image and text */
+    gap: 20px; /* Add spacing between image and text */
+    flex-wrap: wrap; /* Ensure responsiveness */
+}
+
+.about-us-image {
+    flex: 1; /* Take up 1 part of the space */
+    max-width: 450px; /* Limit the image width */
+    height: 400px;
+   
+}
+
+.about-us-image img {
+    width: 100%; /* Make the image responsive */
+    height: auto; /* Maintain aspect ratio */
+    border-radius: 10px; /* Add rounded corners */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Add shadow for styling */
+    height: 380px;
+}
+
+.about-us-text {
+    flex: 2; /* Take up 2 parts of the space */
+    text-align: left; /* Align text to the left */
+
+}
+
+.about-us h1 {
+    font-size: 26px; /* Large heading */
+    font-weight: bold; /* Bold text */
+    color: #ff5722; /* Highlighted color for the heading */
+    margin-bottom: 20px; /* Add spacing below the heading */
+    width: 80%;
+}
+.about-us h2 {
+    font-size: 36px; /* Large heading */
+    font-weight: bold; /* Bold text */
+    color: #294fda; /* Highlighted color for the heading */
+    margin-bottom: 20px; /* Add spacing below the heading */
+    width: 80%;
+}
+
+.about-us p {
+    font-size: 18px; /* Adjust font size */
+    margin-bottom: 15px; /* Add spacing between paragraphs */
+    width: 70%;
+}
+
+
+/* CSS for the services section */
+
+
+
+.our-services {
+    padding: 50px 100px; /* Add padding for spacing */
+    background-color: #ffffff; /* White background */
+    color: #333; /* Dark text color */
+    text-align: center; /* Center align the text */
+    font-family: 'Arial', sans-serif; /* Clean font */
+    line-height: 1.6; /* Improve readability */
+}
+
+.our-services h1 {
+    font-size: 36px; /* Large heading */
+    font-weight: bold; /* Bold text */
+    color: #ff5722; /* Highlighted color for the heading */
+    margin-bottom: 40px; /* Add spacing below the heading */
+}
+
+.services-content {
+    display: grid; /* Use Grid layout */
+    grid-template-columns: repeat(3, 1fr);
+    gap: 60px;
+   
+}
+
+.service-item {
+    flex: 1; /* Take up equal space */
+    max-width: 310px; /* Limit the width of each service item */
+    height: 235px; /* Set a fixed height */
+    text-align: center; /* Center align the content */
+    padding: 20px; /* Add padding inside each service item */
+    border: 1px solid #ddd; /* Add a border for styling */
+    border-radius: 10px; /* Rounded corners */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Add shadow for styling */
+    background-color: #f9f9f9; /* Light background for service items */
+    transition: transform 0.3s ease, box-shadow 0.3s ease; /* Smooth hover effect */
+    
+}
+
+.service-item:hover {
+    transform: translateY(-10px); /* Lift the item on hover */
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2); /* Add a deeper shadow on hover */
+}
+
+.service-item img {
+    width: 40%; /* Make the image responsive */
+    height: 40%; /* Maintain aspect ratio */
+    border-radius: 10px; /* Add rounded corners */
+    margin-bottom: 15px; /* Add spacing below the image */
+}
+
+
+.service-item h2 {
+    font-size: 24px; /* Adjust font size */
+    font-weight: bold; /* Bold text */
+    color: #294fda; /* Highlighted color for the heading */
+    margin: 0px; /* Add spacing below the heading */
+}
+
+.service-item p {
+    font-size: 16px; /* Adjust font size */
+    color: #555; /* Slightly lighter text color */
+    
+
+}
+
+/* CSS for the differentiators section */
+.differentiators {
+    padding: 50px 100px; /* Add padding for spacing */
+    background-color: #f4f4f4; /* Light gray background */
+    color: #333; /* Dark text color */
+    font-family: 'Arial', sans-serif; /* Clean font */
+    line-height: 1.6; /* Improve readability */
+}
+
+.differentiators-content {
+    display: flex; /* Use Flexbox for layout */
+    align-items: center; /* Center align items vertically */
+    justify-content: space-between; /* Add space between image and points */
+    gap: 20px; /* Add spacing between image and points */
+    flex-wrap: wrap; /* Ensure responsiveness */
+    flex-direction: row-reverse;
+}
+
+.differentiators-image {
+    flex: 1; /* Take up 1 part of the space */
+    max-width: 600px; /* Limit the image width */
+    height: 560px; /* Set a fixed height */
+    margin-top: 70px;
+}
+
+.differentiators-image img {
+    width: 500px; /* Make the image responsive */
+    height: 250px; /* Maintain aspect ratio */
+    border-radius: 10px; /* Add rounded corners */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Add shadow for styling */
+    margin-top: 100px;
+}
+
+.differentiators-points {
+    flex: 2; /* Take up 2 parts of the space */
+    text-align: left; /* Align text to the left */
+}
+
+.differentiators-points h1 {
+    font-size: 36px; /* Large heading */
+    font-weight: bold; /* Bold text */
+    color: #ff5722; /* Highlighted color for the heading */
+    margin-bottom: 20px; /* Add spacing below the heading */
+}
+
+.differentiators-points ul {
+    list-style: none; /* Remove default list styling */
+    padding: 0; /* Remove padding */
+}
+
+.differentiators-points li {
+    font-size: 18px; /* Adjust font size */
+    margin-bottom: 10px; /* Add spacing between points */
+    padding-left: 25px; /* Add padding for custom bullet */
+    position: relative; /* For custom bullet positioning */
+}
+
+.differentiators-points li::before {
+    content: "?"; /* Custom bullet icon */
+    position: absolute;
+    left: 0; /* Position bullet on the left */
+    color: #ff5722; /* Bullet color */
+    font-size: 18px; /* Bullet size */
+    font-weight: bold; /* Make bullet bold */
+}
+
+/* CSS for the testimonials section */
+/* Get Started Button */
+.get-started {
+    text-align: left; /* Align the button to the left */
+    margin-top: 20px; /* Add spacing above the button */
+    margin-left: 30px;
+}
+
+.get-started-button {
+    background-color: #ff5722; /* Button background color */
+    color: white; /* Button text color */
+    font-size: 18px; /* Font size */
+    padding: 10px 20px; /* Add padding */
+    border: none; /* Remove border */
+    border-radius: 5px; /* Rounded corners */
+    cursor: pointer; /* Pointer cursor on hover */
+    transition: background-color 0.3s ease, transform 0.3s ease; /* Smooth hover effect */
+    text-decoration: none; /* Remove underline */
+    display: inline-block; /* Make it behave like a button */
+}
+
+.get-started-button:hover {
+    background-color: #e64a19; /* Darker background on hover */
+    transform: scale(1.05); /* Slightly enlarge the button on hover */
+   
+   
+}
+
+/* Contact Form */
+.contact-form-container {
+    display: none; /* Initially hide the form */
+    background-color: #f9f9f9; /* Light background */
+    padding: 30px; /* Add padding */
+    border-radius: 10px; /* Rounded corners */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Add shadow */
+    max-width: 500px; /* Limit form width */
+    margin: 30px auto; /* Center the form */
+    text-align: left; /* Align text to the left */
+    position: fixed;    /* Fixed position for the form */
+    top: 50%; /* Center vertically */
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 1000;
+    width: 400px;
+}
+
+/* Show the form and overlay when checkbox is checked */
+#toggleForm:checked ~ .overlay {
+    display: block; /* Show the overlay */
+}
+
+#toggleForm:checked ~ .contact-form-container {
+    display: block; /* Show the form */
+}
+
+
+.contact-form-container h2 {
+    font-size: 24px; /* Heading font size */
+    color: #ff5722; /* Highlighted color */
+    display: block;
+
+}
+
+.contact-form-container label {
+    display: block; /* Make labels block elements */
+    font-size: 16px; /* Label font size */
+    margin-bottom: 5px; /* Add spacing below labels */
+    color: #333; /* Dark text color */
+}
+
+.contact-form-container input,
+.contact-form-container textarea {
+    width: 100%; /* Full width */
+    padding: 10px; /* Add padding */
+    margin-bottom: 15px; /* Add spacing between fields */
+    border: 1px solid #ddd; /* Light border */
+    border-radius: 5px; /* Rounded corners */
+    font-size: 14px; /* Adjust font size */
+}
+
+.contact-form-container button {
+    background-color: #ff5722; /* Button background color */
+    color: white; /* Button text color */
+    font-size: 16px; /* Font size */
+    padding: 10px 20px; /* Add padding */
+    border: none; /* Remove border */
+    border-radius: 5px; /* Rounded corners */
+    cursor: pointer; /* Pointer cursor on hover */
+    transition: background-color 0.3s ease, transform 0.3s ease; /* Smooth hover effect */
+}
+
+.contact-form-container button:hover {
+    background-color: #e64a19; /* Darker background on hover */
+    transform: scale(1.05); /* Slightly enlarge the button on hover */
+}
+/* Overlay for dimming the background */
+.overlay {
+    display: none; /* Initially hidden */
+    position: fixed; /* Cover the entire screen */
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5); /* Semi-transparent black */
+    z-index: 999; /* Place it above all content */
+}
+/* Close Button */
+.close-button {
+    position: absolute; /* Position it inside the form */
+    top: 10px; /* Distance from the top */
+    right: 10px; /* Distance from the right */
+    font-size: 40px; /* Font size for the "X" */
+    color:#ff5722; /* Dark color for the button */
+    cursor: pointer; /* Pointer cursor on hover */
+    background: none; /* No background */
+    border: none; /* No border */
+    outline: none; /* Remove outline */
+    font-weight: bold; /* Bold text */
+    transition: color 0.3s ease; /* Smooth color change on hover */
+}
+
+.close-button:hover {
+    color: #ff5722; /* Highlighted color on hover */
+}
+
+/* Sign-Up Page Layout */
+.sign-up-page {
+    display: flex; /* Use Flexbox for layout */
+    height: 100vh; /* Full viewport height */
+    background-color: #f4f4f4; /* Light background color */
+    font-family: 'Arial', sans-serif; /* Clean font */
+}
+
+/* Left Side: Sign-Up Form */
+.sign-up-form {
+    flex: 1; /* Take up 1 part of the space */
+    background-color: #ffffff; /* White background */
+    padding: 50px; /* Add padding */
+    display: flex;
+    flex-direction: column;
+    justify-content: center; /* Center content vertically */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Add shadow */
+}
+
+.sign-up-form h1 {
+    font-size: 32px; /* Large heading */
+    color: #ff5722; /* Highlighted color */
+    margin-bottom: 20px; /* Add spacing below heading */
+}
+
+.sign-up-form label {
+    font-size: 16px; /* Label font size */
+    color: #333; /* Dark text color */
+    margin-bottom: 5px; /* Add spacing below labels */
+    display: block; /* Make labels block elements */
+}
+
+.sign-up-form input {
+    width: 100%; /* Full width */
+    padding: 10px; /* Add padding */
+    margin-bottom: 15px; /* Add spacing between fields */
+    border: 1px solid #ddd; /* Light border */
+    border-radius: 5px; /* Rounded corners */
+    font-size: 14px; /* Adjust font size */
+}
+
+.sign-up-form button {
+    background-color: #ff5722; /* Button background color */
+    color: white; /* Button text color */
+    font-size: 16px; /* Font size */
+    padding: 10px 20px; /* Add padding */
+    border: none; /* Remove border */
+    border-radius: 5px; /* Rounded corners */
+    cursor: pointer; /* Pointer cursor on hover */
+    transition: background-color 0.3s ease, transform 0.3s ease; /* Smooth hover effect */
+}
+
+.sign-up-form button:hover {
+    background-color: #e64a19; /* Darker background on hover */
+    transform: scale(1.05); /* Slightly enlarge the button on hover */
+}
+
+/* Right Side: Company Info */
+.company-info {
+    flex: 1; /* Take up 1 part of the space */
+    background-color: #ff5722; /* Highlighted background color */
+    color: white; /* White text color */
+    padding: 50px; /* Add padding */
+    display: flex;
+    flex-direction: column;
+    justify-content: center; /* Center content vertically */
+    text-align: left; /* Align text to the left */
+}
+
+.company-info h1 {
+    font-size: 32px; /* Large heading */
+    margin-bottom: 20px; /* Add spacing below heading */
+}
+
+.company-info p {
+    font-size: 18px; /* Paragraph font size */
+    margin-bottom: 20px; /* Add spacing below paragraph */
+}
+
+.company-info ul {
+    list-style: none; /* Remove default list styling */
+    padding: 0; /* Remove padding */
+}
+
+.company-info li {
+    font-size: 16px; /* List item font size */
+    margin-bottom: 10px; /* Add spacing between list items */
+    position: relative; /* For custom bullet positioning */
+    padding-left: 25px; /* Add padding for custom bullet */
+}
+
+.company-info li::before {
+    content: "?"; /* Custom bullet icon */
+    position: absolute;
+    left: 0; /* Position bullet on the left */
+    color: white; /* Bullet color */
+    font-size: 18px; /* Bullet size */
+    font-weight: bold; /* Make bullet bold */
+}
+
+
+/* Footer Styles */
+.footer {
+    background-color: #333; /* Dark background */
+    color: white; /* White text color */
+    padding: 60px 20px; /* Add padding */
+    font-family: 'Arial', sans-serif; /* Clean font */
+    width: 100%; /* Full viewport width */
+    position: relative; /* Ensure it stays within the page layout */
+    box-sizing: border-box; /* Include padding and border in width */
+}
+
+.footer-container {
+    display: flex; /* Use Flexbox for layout */
+    justify-content: space-between; /* Space between sections */
+    flex-wrap: wrap; /* Ensure responsiveness */
+    gap: 30px; /* Add spacing between sections */
+    width: 100%; /* Full width */
+}
+
+.footer-about,
+.footer-links,
+.footer-contact,
+.footer-newsletter {
+    flex: 1; /* Equal space for each section */
+    min-width: 250px; /* Minimum width for responsiveness */
+}
+
+.footer-about h2,
+.footer-links h2,
+.footer-contact h2,
+.footer-newsletter h2 {
+    font-size: 22px; /* Heading font size */
+    margin-bottom: 15px; /* Add spacing below heading */
+    color: #ff5722; /* Highlighted color */
+}
+
+.footer-about p,
+.footer-newsletter p {
+    font-size: 14px; /* Adjust font size */
+    line-height: 1.6; /* Improve readability */
+}
+
+.footer-links ul {
+    list-style: none; /* Remove default list styling */
+    padding: 0; /* Remove padding */
+}
+
+.footer-links li {
+    margin-bottom: 10px; /* Add spacing between links */
+}
+
+.footer-links a {
+    color: white; /* White text color */
+    text-decoration: none; /* Remove underline */
+    transition: color 0.3s ease; /* Smooth hover effect */
+}
+
+.footer-links a:hover {
+    color: #ff5722; /* Highlighted color on hover */
+}
+
+.footer-contact p {
+    font-size: 14px; /* Adjust font size */
+    margin-bottom: 10px; /* Add spacing between contact details */
+}
+
+.social-icons {
+    margin-top: 10px; /* Add spacing above icons */
+}
+
+.social-icons a {
+    color: white; /* White icon color */
+    font-size: 20px; /* Icon size */
+    margin-right: 10px; /* Add spacing between icons */
+    text-decoration: none; /* Remove underline */
+    transition: color 0.3s ease; /* Smooth hover effect */
+}
+
+.social-icons a:hover {
+    color: #ff5722; /* Highlighted color on hover */
+}
+
+/* Newsletter Section */
+.footer-newsletter form {
+    display: flex; /* Use Flexbox for layout */
+    gap: 10px; /* Add spacing between input and button */
+    margin-top: 10px; /* Add spacing above form */
+}
+
+.footer-newsletter input {
+    flex: 1; /* Take up available space */
+    padding: 10px; /* Add padding */
+    border: 1px solid #ddd; /* Light border */
+    border-radius: 5px; /* Rounded corners */
+    font-size: 14px; /* Adjust font size */
+}
+
+.footer-newsletter button {
+    background-color: #ff5722; /* Button background color */
+    color: white; /* Button text color */
+    font-size: 14px; /* Font size */
+    padding: 10px 20px; /* Add padding */
+    border: none; /* Remove border */
+    border-radius: 5px; /* Rounded corners */
+    cursor: pointer; /* Pointer cursor on hover */
+    transition: background-color 0.3s ease, transform 0.3s ease; /* Smooth hover effect */
+}
+
+.footer-newsletter button:hover {
+    background-color: #e64a19; /* Darker background on hover */
+    transform: scale(1.05); /* Slightly enlarge the button on hover */
+}
+html {
+    scroll-behavior: smooth; /* Smooth scrolling effect */
+}
+
+/* Footer Bottom */
+.footer-bottom {
+    text-align: center; /* Center align text */
+    margin-top: 30px; /* Add spacing above */
+    font-size: 14px; /* Adjust font size */
+    border-top: 1px solid #444; /* Add a top border */
+    padding-top: 10px; /* Add padding above text */
+}
+/* Contact Us Section */
+.contact-us-section {
+    padding: 50px 20px; /* Add padding for spacing */
+    background-color: #f9f9f9; /* Light background color */
+    color: #333; /* Dark text color */
+    font-family: 'Arial', sans-serif; /* Clean font */
+    text-align: center; /* Center align the text */
+}
+
+.contact-us-section h2 {
+    font-size: 28px; /* Heading font size */
+    color: #ff5722; /* Highlighted color */
+    margin-bottom: 20px; /* Add spacing below heading */
+}
+
+.contact-form {
+    max-width: 600px; /* Limit form width */
+    margin: 0 auto 30px; /* Center the form and add spacing below */
+    text-align: left; /* Align text to the left */
+}
+
+.contact-form label {
+    display: block; /* Make labels block elements */
+    font-size: 16px; /* Label font size */
+    margin-bottom: 5px; /* Add spacing below labels */
+    color: #333; /* Dark text color */
+}
+
+.contact-form input,
+.contact-form textarea {
+    width: 100%; /* Full width */
+    padding: 10px; /* Add padding */
+    margin-bottom: 15px; /* Add spacing between fields */
+    border: 1px solid #ddd; /* Light border */
+    border-radius: 5px; /* Rounded corners */
+    font-size: 14px; /* Adjust font size */
+}
+
+.contact-form button {
+    background-color: #ff5722; /* Button background color */
+    color: white; /* Button text color */
+    font-size: 16px; /* Font size */
+    padding: 10px 20px; /* Add padding */
+    border: none; /* Remove border */
+    border-radius: 5px; /* Rounded corners */
+    cursor: pointer; /* Pointer cursor on hover */
+    transition: background-color 0.3s ease, transform 0.3s ease; /* Smooth hover effect */
+}
+
+.contact-form button:hover {
+    background-color: #e64a19; /* Darker background on hover */
+    transform: scale(1.05); /* Slightly enlarge the button on hover */
+}
+
+.map-container {
+    margin-top: 30px; /* Add spacing above the map */
+}
+
+.map-container h3 {
+    font-size: 22px; /* Map heading font size */
+    color: #333; /* Dark text color */
+    margin-bottom: 15px; /* Add spacing below heading */
+}
+
+</style>
+   
+</head>
+<body>
+    <div class="navbar">
+        <div>
+            <a href="Index.html"><img src="Simple.png" alt="company-logo" class="Simple"></a>
+        </div>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        <div class="menu">
+            <ul>
+                <li><div class="contact-item"><a href="Index.html"><font color="white">Home</font></a></div></li>
+                <li><div class="contact-item"><a href="Python.html"><font color="white">Python</font></a></div></li>
+                <li><div class="contact-item"><a href="HTML.html"><font color="white">HTML</font></a></div></li>
+                <li><div class="contact-item"><a href="Css.html"><font color="white">Css</font></a></div></li>
+                <li><div class="contact-item"><a href="C.html"><font color="white">C</font></a></div></li>
+                <li><div class="contact-item"><a href="Games.html"><font color="white">Games</font></a></div></li>
+            </ul>
+        </div>
+    </div>
+    <div class="sidebar">
+        <a href="#html_introduction">HTML Introduction</a><br>
+        <a href="#html_editors">HTML Editors</a><br>
+        <a href="#html_basic">HTML Basic</a><br>
+        <a href="#html_elements">HTML Elements</a><br>
+        <a href="#html_attributes">HTML Attributes</a><br>
+        <a href="#html_headings">HTML Headings</a><br>
+        <a href="#html_paragraphs">HTML Paragraphs</a><br>
+        <a href="#html_styles">HTML Styles</a><br>
+        <a href="#html_formatting">HTML Formatting</a><br>
+        <a href="#html_quotation">HTML Quotation</a><br>
+        <a href="#html_comments">HTML Comments</a><br>
+        <a href="#html_colors">HTML Colors</a><br>
+        <a href="#html_links">HTML Links</a><br>
+        <a href="#html_images">HTML Images</a><br>
+        <a href="#html_tables">HTML Tables</a><br>
+        <a href="#html_lists">HTML Lists</a><br>
+        <a href="#html_blocks">HTML Blocks</a><br>
+        <a href="#html_classes">HTML Classes</a><br>
+        <a href="#html_id">HTML Id</a><br>
+        <a href="#html_iframe">HTML Iframe</a><br>
+        <a href="#html_scripts">HTML Scripts</a><br>
+        <a href="#html_forms">HTML Forms</a><br>
+        <a href="#html_form_elements">HTML Form Elements</a><br>
+        <a href="#html_form_attributes">HTML Form Attributes</a><br>
+        <a href="#html_media">HTML Media</a><br>
+        <a href="#html_audio">HTML Audio</a><br>
+        <a href="#html_video">HTML Video</a><br>
+        <a href="#html_semantics">HTML Semantics</a><br>
+        <a href="#html_symbols">HTML Symbols</a><br>
+        <a href="#html_entities">HTML Entities</a><br>
+    </div>
+    <div class="content">
+    <ul style="color:black;">
+        <font color="black">
+        <li><b>HTML Tutorial:</b> Learn HTML from scratch with examples.</li>
+        <li><b>What we will learn:</b></ul>
+        <li><b>Introduction:</b> Overview of HTML and its purpose.</li>
+        <li><b>Editors:</b> Tools for writing HTML code.</li>
+        <li><b>Basic Structure:</b> Understanding the basic structure of an HTML document.</li>
+        <li><b>Elements:</b> Learning about HTML elements and their usage.</li>
+        <li><b>Attributes:</b> Using attributes to provide additional information about elements.</li>
+        <li><b>Headings:</b> Creating headings to organize content.</li>
+        <li><b>Paragraphs:</b> Structuring text into paragraphs.</li>
+        <li><b>Styles:</b> Applying styles to HTML elements using CSS.</li>
+        <li><b>Formatting:</b> Formatting text with various tags.</li>
+        <li><b>Quotation:</b> Marking up quotations in HTML.</li>
+        <li><b>Comments:</b> Adding comments in HTML code.</li>
+        <li><b>Colors:</b> Specifying colors in HTML documents.</li>
+        <li><b>Links:</b> Creating hyperlinks to other pages or resources.</li>
+        <li><b>Images:</b> Embedding images in web pages.</li>
+        <li><b>Tables:</b> Creating tables to display data.</li>
+        <li><b>Lists:</b> Using ordered and unordered lists for content organization.</li>
+        <li><b>Blocks:</b> Understanding block-level elements in HTML.</li>
+        <li><b>Classes and Ids:</b> Using classes and ids for styling and scripting purposes.</li>
+        <li><b>Iframes:</b> Embedding other web pages within a page using iframes.</li>
+        <li><b>Scripts:</b> Adding JavaScript for interactivity in web pages.</li>
+        <li><b>Forms:</b> Creating forms for user input and data submission.</li>
+        <li><b>Media:</b> Embedding audio and video content in web pages.</li>
+        <li><b>Semantics:</b> Using semantic tags for better structure and accessibility.</li>
+        <li><b>Audio:</b>Audio files can be embedded using the <code>&lt;audio&gt;</code> tag. The <code>src</code> attribute specifies the audio file path, and controls can be added for playback.</li>
+        <li><b>Video:</b>Video files can be embedded using the <code>&lt;video&gt;</code> tag. Similar to audio, the <code>src</code> attribute specifies the video file path, and controls can be added for playback.</li>
+        <li><b>Symbols:</b> Using special symbols in HTML documents.</li>
+        <li><b>Entities:</b> Understanding HTML entities for special characters.</li>
+        </font>
+        <iframe src="https://www.programiz.com/html/online-compiler/" width="100%" height="400" style="border:1px solid #ccc;"></iframe>
+    </ul>
+    <hr>
+    <font color ="black">
+    <hr>
+    <!-- HTML Introduction -->
+    <h3 id="html_introduction">HTML Introduction</h3>
+    <p>Example 1: HTML is used to create web pages.<br>
+    Example 2: HTML stands for HyperText Markup Language.</p>
+    <hr>
+    <!-- HTML Editors -->
+    <h3 id="html_editors">HTML Editors</h3>
+    <p>Example 1: Using Notepad to write HTML code.<br>
+    Example 2: Using VS Code for HTML development.</p>
+    <hr>
+    <!-- HTML Basic -->
+    <h3 id="html_basic">HTML Basic</h3>
+    <p>Example 1: <code>&lt;!DOCTYPE html&gt;</code> declares the document type.<br>
+    Example 2: <code>&lt;html&gt;&lt;/html&gt;</code> wraps the entire HTML content.</p>
+    <hr>
+    <!-- HTML Elements -->
+    <h3 id="html_elements">HTML Elements</h3>
+    <p>Example 1: <code>&lt;p&gt;This is a paragraph.&lt;/p&gt;</code><br>
+    Example 2: <code>&lt;h1&gt;Main Heading&lt;/h1&gt;</code></p>
+    <hr>
+    <!-- HTML Attributes -->
+    <h3 id="html_attributes">HTML Attributes</h3>
+    <p>Example 1: <code>&lt;a href="https://example.com"&gt;Link&lt;/a&gt;</code><br>
+    Example 2: <code>&lt;img src="image.jpg" alt="Description"&gt;</code></p>
+    <hr>
+    <!-- HTML Headings -->
+    <h3 id="html_headings">HTML Headings</h3>
+    <p>Example 1: <code>&lt;h1&gt;Heading 1&lt;/h1&gt;</code><br>
+    Example 2: <code>&lt;h2&gt;Heading 2&lt;/h2&gt;</code></p>
+    <hr>
+    <!-- HTML Paragraphs -->
+    <h3 id="html_paragraphs">HTML Paragraphs</h3>
+    <p>Example 1: <code>&lt;p&gt;First paragraph.&lt;/p&gt;</code><br>
+    Example 2: <code>&lt;p&gt;Second paragraph.&lt;/p&gt;</code></p>
+    <hr>
+    <!-- HTML Styles -->
+    <h3 id="html_styles">HTML Styles</h3>
+    <p>Example 1: <code>&lt;p style="color:blue;"&gt;Blue text&lt;/p&gt;</code><br>
+    Example 2: <code>&lt;h1 style="font-size:30px;"&gt;Large Heading&lt;/h1&gt;</code></p>
+    <hr>
+    <!-- HTML Formatting -->
+    <h3 id="html_formatting">HTML Formatting</h3>
+    <p>Example 1: <code>&lt;b&gt;Bold text&lt;/b&gt;</code><br>
+    Example 2: <code>&lt;i&gt;Italic text&lt;/i&gt;</code></p>
+    <hr>
+    <!-- HTML Quotation -->
+    <h3 id="html_quotation">HTML Quotation</h3>
+    <p>Example 1: <code>&lt;blockquote&gt;A long quotation.&lt;/blockquote&gt;</code><br>
+    Example 2: <code>&lt;q&gt;A short quote.&lt;/q&gt;</code></p>
+    <hr>
+    <!-- HTML Comments -->
+    <h3 id="html_comments">HTML Comments</h3>
+    <p>Example 1: <code>&lt;!-- This is a comment --&gt;</code><br>
+    Example 2: <code>&lt;!-- Another comment --&gt;</code></p>
+    <hr>
+    <!-- HTML Colors -->
+    <h3 id="html_colors">HTML Colors</h3>
+    <p>Example 1: <code>&lt;p style="color:red;"&gt;Red text&lt;/p&gt;</code><br>
+    Example 2: <code>&lt;body style="background-color:yellow;"&gt;</code></p>
+    <hr>
+    <!-- HTML Links -->
+    <h3 id="html_links">HTML Links</h3>
+    <p>Example 1: <code>&lt;a href="https://google.com"&gt;Google&lt;/a&gt;</code><br>
+    Example 2: <code>&lt;a href="about.html"&gt;About Us&lt;/a&gt;</code></p>
+    <hr>
+    <!-- HTML Images -->
+    <h3 id="html_images">HTML Images</h3>
+    <p>Example 1: <code>&lt;img src="logo.png" alt="Logo"&gt;</code><br>
+    Example 2: <code>&lt;img src="banner.jpg" width="300"&gt;</code></p>
+    <hr>
+    <!-- HTML Tables -->
+    <h3 id="html_tables">HTML Tables</h3>
+    <p>Example 1:
+    <code>
+    &lt;table&gt;&lt;tr&gt;&lt;td&gt;A&lt;/td&gt;&lt;td&gt;B&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+    </code><br>
+    Example 2:
+    <code>
+    &lt;table&gt;&lt;tr&gt;&lt;th&gt;Name&lt;/th&gt;&lt;th&gt;Age&lt;/th&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt;John&lt;/td&gt;&lt;td&gt;25&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+    </code>
+    </p>
+    <hr>
+    <!-- HTML Lists -->
+    <h3 id="html_lists">HTML Lists</h3>
+    <p>Example 1: <code>&lt;ul&gt;&lt;li&gt;Item 1&lt;/li&gt;&lt;li&gt;Item 2&lt;/li&gt;&lt;/ul&gt;</code><br>
+    Example 2: <code>&lt;ol&gt;&lt;li&gt;First&lt;/li&gt;&lt;li&gt;Second&lt;/li&gt;&lt;/ol&gt;</code></p>
+    <hr>
+    <!-- HTML Blocks -->
+    <h3 id="html_blocks">HTML Blocks</h3>
+    <p>Example 1: <code>&lt;div&gt;Block element&lt;/div&gt;</code><br>
+    Example 2: <code>&lt;p&gt;Paragraph block&lt;/p&gt;</code></p>
+    <hr>
+    <!-- HTML Classes -->
+    <h3 id="html_classes">HTML Classes</h3>
+    <p>Example 1: <code>&lt;div class="container"&gt;Content&lt;/div&gt;</code><br>
+    Example 2: <code>&lt;p class="highlight"&gt;Highlighted text&lt;/p&gt;</code></p>
+    <hr>
+    <!-- HTML Id -->
+    <h3 id="html_id">HTML Id</h3>
+    <p>Example 1: <code>&lt;h1 id="main-title"&gt;Title&lt;/h1&gt;</code><br>
+    Example 2: <code>&lt;div id="section1"&gt;Section 1&lt;/div&gt;</code></p>
+    <hr>
+    <!-- HTML Iframe -->
+    <h3 id="html_iframe">HTML Iframe</h3>
+    <p>Example 1: <code>&lt;iframe src="page.html"&gt;&lt;/iframe&gt;</code><br>
+    Example 2: <code>&lt;iframe width="300" height="200" src="https://www.simple.com"&gt;&lt;/iframe&gt;</code></p>
+    <hr>
+    <!-- HTML Scripts -->
+    <h3 id="html_scripts">HTML Scripts</h3>
+    <p>Example 1: <code>&lt;script&gt;alert('Hello!');&lt;/script&gt;</code><br>
+    Example 2: <code>&lt;script src="main.js"&gt;&lt;/script&gt;</code></p>
+    <hr>
+    <!-- HTML Forms -->
+    <h3 id="html_forms">HTML Forms</h3>
+    <p>Example 1: <code>&lt;form&gt;&lt;input type="text"&gt;&lt;/form&gt;</code><br>
+    Example 2: <code>&lt;form&gt;&lt;button&gt;Submit&lt;/button&gt;&lt;/form&gt;</code></p>
+    <hr>
+    <!-- HTML Form Elements -->
+    <h3 id="html_form_elements">HTML Form Elements</h3>
+    <p>Example 1: <code>&lt;input type="email"&gt;</code><br>
+    Example 2: <code>&lt;textarea&gt;Message&lt;/textarea&gt;</code></p>
+    <hr>
+    <!-- HTML Form Attributes -->
+    <h3 id="html_form_attributes">HTML Form Attributes</h3>
+    <p>Example 1: <code>&lt;form action="submit.php"&gt;</code><br>
+    Example 2: <code>&lt;input type="text" placeholder="Enter name"&gt;</code></p>
+    <hr>
+    <!-- HTML Media -->
+    <h3 id="html_media">HTML Media</h3>
+    <p>Example 1: <code>&lt;audio src="song.mp3" controls&gt;&lt;/audio&gt;</code><br>
+    Example 2: <code>&lt;video src="movie.mp4" controls&gt;&lt;/video&gt;</code></p>
+    <hr>
+    <!-- HTML Audio -->
+    <h3 id="html_audio">HTML Audio</h3>
+    <p>Example 1: <code>&lt;audio src="audio.mp3" controls&gt;&lt;/audio&gt;</code><br>
+    Example 2: <code>&lt;audio controls&gt;&lt;source src="sound.ogg" type="audio/ogg"&gt;&lt;/audio&gt;</code></p>
+    <hr>
+    <!-- HTML Video -->
+    <h3 id="html_video">HTML Video</h3>
+    <p>Example 1: <code>&lt;video src="video.mp4" controls&gt;&lt;/video&gt;</code><br>
+    Example 2: <code>&lt;video width="320" height="240" controls&gt;&lt;source src="movie.mp4" type="video/mp4"&gt;&lt;/video&gt;</code></p>
+    <hr>
+    <!-- HTML Semantics -->
+    <h3 id="html_semantics">HTML Semantics</h3>
+    <p>Example 1: <code>&lt;header&gt;Site Header&lt;/header&gt;</code><br>
+    Example 2: <code>&lt;article&gt;Article content&lt;/article&gt;</code></p>
+    <hr>
+    <!-- HTML Symbols -->
+    <h3 id="html_symbols">HTML Symbols</h3>
+    <p>Example 1: <code>&amp;copy;</code> displays ©<br>
+    Example 2: <code>&amp;hearts;</code> displays ♥</p>
+    <hr>
+    <!-- HTML Entities -->
+    <h3 id="html_entities">HTML Entities</h3>
+    <p>Example 1: <code>&amp;lt;</code> displays &lt;<br>
+    Example 2: <code>&amp;amp;</code> displays &amp;</p>
+    <hr>
+    </font>
+
+</div>
+            <div>
+	<footer class="footer">
+    		<div class="footer-container">
+    		</div>
+    		<div class="footer-bottom">
+        		<p>&copy; 2025 Simple. All rights reserved.</p>
+    		</div>
+	</footer>
+    </div>
+</body>
+</html>

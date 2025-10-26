@@ -1,0 +1,131 @@
+       
+       
+       /* CSS for the navigation bar */
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: 'Arial', sans-serif; 
+        }
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+        }
+        .navbar {
+           
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background-color:transparent ;
+            padding: 0px;
+            height: 120px;
+            border-bottom: 2px  solid gray;
+        }
+        
+        .Ajanta{
+             height: 120px;
+            width: 100px;
+            margin-top: 10px;
+            margin-left: 20px;
+        }
+       
+    
+        
+        .navbar .menu {
+            display: flex;
+            flex: 1;
+            justify-content: left;
+        }
+
+        /* menu start from here */
+
+        .menu ul{
+            display: flex;
+            margin: 0;
+            padding: 0;
+            gap: 30px;
+            margin-top: 40px;
+            margin-left: 30px;
+        }
+
+        .menu li {
+            font-size: 22px;
+            padding: 8px 15px;
+            list-style: none;
+            padding: 10px 20px;
+            text-align: left;
+            border-bottom: transparent solid 2px;
+            flex-wrap: nowrap;
+            
+        }   
+        .menu li:hover {
+            
+            border-bottom: orange solid 2px;
+            
+        }
+        .menu a {
+            text-decoration: none;
+            color: black;
+            font-weight: lighter;
+            
+        }
+
+        /* Dropdown menu styles */
+    .navbar .menu ul .dropdown {
+    display: none;
+  position: absolute;
+  background-color: #f9f9f9;
+  min-width: 160px;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  z-index: 1;
+  transition: all 0.3s ease;
+  border-radius: 8px;
+  opacity: .9; /* Initially hidden */
+  transform: translateY(-2px); /* Slide up effect */
+  padding: 0px ;
+  margin: 0px;
+}
+/* Show dropdown on hover */
+.menu ul li:hover .dropdown {
+    display: block; /* Show dropdown when hovering over parent */
+}
+.contact-area {
+    display: flex; /* Use Flexbox for layout */
+    align-items: center; /* Center align items vertically */
+    justify-content: flex-end; /* Align the contact area to the right */
+    gap: 40px; /* Add spacing between contact items */
+    margin-right: 40px; /* Add spacing from the right edge */
+    font-size: 20px; /* Adjust font size */
+    font-family: 'Arial', sans-serif; /* Clean font */
+}
+
+.contact-item {
+    display: flex; /* Use Flexbox for layout */
+    align-items: center; /* Center align items vertically */
+    gap: 40px; /* Add spacing between icon and text */
+    background-color: #190202; /* Light background for styling */
+    padding: 10px 15px; /* Add padding for spacing */
+    border-radius: 8px; /* Rounded corners */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Add shadow for styling */
+    transition: transform 0.3s ease, box-shadow 0.3s ease; /* Smooth hover effect */
+    cursor: pointer; /* Change cursor to pointer */
+}
+
+.contact-item:hover {
+    transform: translateY(-5px); /* Lift the item on hover */
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2); /* Add a deeper shadow on hover */
+    background-color: #ff5722; /* Change background color on hover */
+    color: white; /* Change text color on hover */
+}
+
+.contact-item i {
+    font-size: 20px; /* Icon size */
+    color: #ff5722; /* Icon color */
+    transition: color 0.1s ease; /* Smooth color change */
+}
+
+.contact-item:hover i {
+    color: white; /* Change icon color on hover */
+}
+
+
