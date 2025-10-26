@@ -1,0 +1,1296 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Simple</title>
+<style type ="text/css">
+               /* CSS for the navigation bar */
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: 'Arial', sans-serif; 
+        }
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+        }
+        .navbar {
+            justify-content: left;
+            display: flex;
+            align-items: center;
+            background-color:transparent ;
+            padding: 0px;
+            height: 120px;
+            border-bottom: 2px  solid gray;
+        }
+        
+        .Simple{
+	    justify-content: left;
+            height: 120px;
+            width: 100px;
+            margin-top: 10px;
+            margin-left: 20px;
+        }
+       
+    
+        
+        .navbar .menu {
+            display: flex;
+            flex: 1;
+            justify-content: left;
+        }
+        .sidebar {
+            width: 250px;
+            background-color: #f1f1f1;
+            height: 100vh;
+            overflow-y: auto;
+            padding-top: 20px;
+            border-right: 1px solid #ccc;
+        }
+        
+        .content {
+            flex-grow: 1;
+            padding: 20px;
+        }
+        /* menu start from here */
+
+        .menu ul{
+            display: flex;
+            margin: 0;
+            padding: 0;
+            gap: 30px;
+            margin-top: 40px;
+            margin-left: 30px;
+        }
+
+        .menu li {
+            font-size: 22px;
+            padding: 8px 15px;
+            list-style: none;
+            padding: 10px 20px;
+            text-align: left;
+            border-bottom: transparent solid 2px;
+            flex-wrap: nowrap;
+            
+        }   
+        .menu li:hover {
+            
+            border-bottom: orange solid 2px;
+            
+        }
+        .menu a {
+            text-decoration: none;
+            color: black;
+            font-weight: lighter;
+            
+        }
+
+        /* Dropdown menu styles */
+    .navbar .menu ul .dropdown {
+    display: none;
+  position: absolute;
+  background-color: #f9f9f9;
+  min-width: 160px;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  z-index: 1;
+  transition: all 0.3s ease;
+  border-radius: 8px;
+  opacity: .9; /* Initially hidden */
+  transform: translateY(-2px); /* Slide up effect */
+  padding: 0px ;
+  margin: 0px;
+}
+/* Show dropdown on hover */
+.menu ul li:hover .dropdown {
+    display: block; /* Show dropdown when hovering over parent */
+}
+.contact-area {
+    display: flex; /* Use Flexbox for layout */
+    align-items: center; /* Center align items vertically */
+    justify-content: flex-end; /* Align the contact area to the right */
+    gap: 40px; /* Add spacing between contact items */
+    margin-right: 40px; /* Add spacing from the right edge */
+    font-size: 20px; /* Adjust font size */
+    font-family: 'Arial', sans-serif; /* Clean font */
+}
+
+.contact-item {
+    display: flex; /* Use Flexbox for layout */
+    align-items: center; /* Center align items vertically */
+    gap: 40px; /* Add spacing between icon and text */
+    background-color: red; /* Light background for styling */
+    padding: 10px 15px; /* Add padding for spacing */
+    border-radius: 8px; /* Rounded corners */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Add shadow for styling */
+    transition: transform 0.3s ease, box-shadow 0.3s ease; /* Smooth hover effect */
+    cursor: pointer; /* Change cursor to pointer */
+}
+
+.contact-item:hover {
+    transform: translateY(-5px); /* Lift the item on hover */
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2); /* Add a deeper shadow on hover */
+    background-color: #ff5722; /* Change background color on hover */
+    color: white; /* Change text color on hover */
+}
+
+.contact-item i {
+    font-size: 20px; /* Icon size */
+    color: white(235, 213, 114); /* Icon color */
+    transition: color 0.1s ease; /* Smooth color change */
+}
+
+.contact-item:hover i {
+    color: white; /* Change icon color on hover */
+}
+
+
+/* CSS for the marquee */
+.marquee {
+    position: relative;
+    background: orangered; /* Gradient background */
+    color:black; /* White text color */
+    font-size: 20px; /* Slightly larger font size */
+    font-weight: bold; /* Bold text */
+    padding: 5px 0; /* Add padding for spacing */
+    border-top: 2px solid #ff5722; /* Top border for styling */
+    border-bottom: 2px solid #ff5722; /* Bottom border for styling */
+    text-align: center;
+    overflow: hidden; /* Hide overflow */
+    margin-top: 0px; /* Adjust margin as needed */
+    padding: 0px 0; /* Add padding for spacing */
+}
+
+.marquee-content {
+    display: inline-block;
+    animation: marquee-scroll 10s linear infinite; /* Smooth scrolling animation */
+    white-space: nowrap; /* Prevent text wrapping */
+}
+/* Video Section */
+.video-section {
+    position: relative; /* Ensure the container is positioned relative */
+    width: 100%; /* Full width */
+    height: auto; /* Adjust height automatically */
+    overflow: hidden; /* Hide overflow */
+}
+
+.video-container {
+    position: relative; /* Position relative for overlay text */
+    width: 100%; /* Full width */
+    height: auto; /* Maintain aspect ratio */
+}
+
+.video-container video {
+    width: 100%; /* Make video responsive */
+    height: auto; /* Maintain aspect ratio */
+    display: block; /* Remove extra spacing */
+    z-index: 1;
+}
+
+.video-overlay-text {
+    position: absolute; /* Position text over the video */
+    top: 10%; /* Center vertically */
+    left: 51%; /* Center horizontally */
+    transform: translate(-50%, -50%); /* Adjust for perfect centering */
+    width: 100%; /* Limit width for better readability */
+    color: white; /* White text color */
+    text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.7); /* Add shadow for better readability */
+    font-family: 'Arial', sans-serif; /* Clean font */
+    z-index: 2; /* Ensure it appears above the video */
+    font-size: large;
+}
+
+.text-slider {
+    position: relative;
+    height: 80px; /* Adjust height based on text size */
+    overflow: hidden; /* Hide overflowing text */
+}
+
+.text-slide {
+    color:white;
+    position: absolute;
+    width: 50%; /* Full width */
+    animation: slideText 15s infinite; /* Apply animation */
+    font-size: 60px; /* Adjust font size */
+    font-weight: bold; /* Bold text */
+    opacity: 0; /* Start with hidden text */
+}
+
+.text-slide:nth-child(1) {
+    animation-delay: 0s; /* First slide starts immediately */
+}
+
+.text-slide:nth-child(2) {
+    animation-delay: 5s; /* Second slide starts after 3 seconds */
+}
+
+.text-slide:nth-child(3) {
+    animation-delay: 10s; /* Third slide starts after 6 seconds */
+}
+
+/* Keyframes for Text Animation */
+@keyframes slideText {
+    10% {
+       
+        opacity: 0; /* Hidden */
+        transform: translateY(20px); /* Slide in from below */
+    }
+    10%, 30% {
+        opacity: 1; /* Fully visible */
+        transform: translateY(0); /* Stay in place */
+    }
+    40% {
+        opacity: 0; /* Fade out */
+        transform: translateY(-20px); /* Slide out above */
+    }
+    100% {
+        opacity: 0; /* Hidden */
+        transform: translateY(-20px); /* Stay out of view */
+    }
+}
+
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    color: white; /* Text color for content over the video */
+    z-index: 1; /* Ensure content appears above the video */
+}
+
+/*css for the about us section*/
+
+.about-us {
+    padding: 150px 120px; /* Add padding for spacing */
+    background-color: #f4f4f4; /* Light gray background */
+    color: #333; /* Dark text color */
+    font-family: 'Arial', sans-serif; /* Clean font */
+    line-height: 1.6; /* Improve readability */
+    margin-top: 0px;
+    scroll-margin-top: 120px; /* Navbar ke height ke hisaab se adjust karein */
+}
+
+
+.about-us-content {
+    display: flex; /* Use Flexbox for layout */
+    align-items: center; /* Center align items vertically */
+    justify-content: space-between; /* Add space between image and text */
+    gap: 20px; /* Add spacing between image and text */
+    flex-wrap: wrap; /* Ensure responsiveness */
+}
+
+.about-us-image {
+    flex: 1; /* Take up 1 part of the space */
+    max-width: 450px; /* Limit the image width */
+    height: 400px;
+   
+}
+
+.about-us-image img {
+    width: 100%; /* Make the image responsive */
+    height: auto; /* Maintain aspect ratio */
+    border-radius: 10px; /* Add rounded corners */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Add shadow for styling */
+    height: 380px;
+}
+
+.about-us-text {
+    flex: 2; /* Take up 2 parts of the space */
+    text-align: left; /* Align text to the left */
+
+}
+
+.about-us h1 {
+    font-size: 26px; /* Large heading */
+    font-weight: bold; /* Bold text */
+    color: #ff5722; /* Highlighted color for the heading */
+    margin-bottom: 20px; /* Add spacing below the heading */
+    width: 80%;
+}
+.about-us h2 {
+    font-size: 36px; /* Large heading */
+    font-weight: bold; /* Bold text */
+    color: #294fda; /* Highlighted color for the heading */
+    margin-bottom: 20px; /* Add spacing below the heading */
+    width: 80%;
+}
+
+.about-us p {
+    font-size: 18px; /* Adjust font size */
+    margin-bottom: 15px; /* Add spacing between paragraphs */
+    width: 70%;
+}
+
+
+/* CSS for the services section */
+
+
+
+.our-services {
+    padding: 50px 100px; /* Add padding for spacing */
+    background-color: #ffffff; /* White background */
+    color: #333; /* Dark text color */
+    text-align: center; /* Center align the text */
+    font-family: 'Arial', sans-serif; /* Clean font */
+    line-height: 1.6; /* Improve readability */
+}
+
+.our-services h1 {
+    font-size: 36px; /* Large heading */
+    font-weight: bold; /* Bold text */
+    color: #ff5722; /* Highlighted color for the heading */
+    margin-bottom: 40px; /* Add spacing below the heading */
+}
+
+.services-content {
+    display: grid; /* Use Grid layout */
+    grid-template-columns: repeat(3, 1fr);
+    gap: 60px;
+   
+}
+
+.service-item {
+    flex: 1; /* Take up equal space */
+    max-width: 310px; /* Limit the width of each service item */
+    height: 235px; /* Set a fixed height */
+    text-align: center; /* Center align the content */
+    padding: 20px; /* Add padding inside each service item */
+    border: 1px solid #ddd; /* Add a border for styling */
+    border-radius: 10px; /* Rounded corners */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Add shadow for styling */
+    background-color: #f9f9f9; /* Light background for service items */
+    transition: transform 0.3s ease, box-shadow 0.3s ease; /* Smooth hover effect */
+    
+}
+
+.service-item:hover {
+    transform: translateY(-10px); /* Lift the item on hover */
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2); /* Add a deeper shadow on hover */
+}
+
+.service-item img {
+    width: 40%; /* Make the image responsive */
+    height: 40%; /* Maintain aspect ratio */
+    border-radius: 10px; /* Add rounded corners */
+    margin-bottom: 15px; /* Add spacing below the image */
+}
+
+
+.service-item h2 {
+    font-size: 24px; /* Adjust font size */
+    font-weight: bold; /* Bold text */
+    color: #294fda; /* Highlighted color for the heading */
+    margin: 0px; /* Add spacing below the heading */
+}
+
+.service-item p {
+    font-size: 16px; /* Adjust font size */
+    color: #555; /* Slightly lighter text color */
+    
+
+}
+
+/* CSS for the differentiators section */
+.differentiators {
+    padding: 50px 100px; /* Add padding for spacing */
+    background-color: #f4f4f4; /* Light gray background */
+    color: #333; /* Dark text color */
+    font-family: 'Arial', sans-serif; /* Clean font */
+    line-height: 1.6; /* Improve readability */
+}
+
+.differentiators-content {
+    display: flex; /* Use Flexbox for layout */
+    align-items: center; /* Center align items vertically */
+    justify-content: space-between; /* Add space between image and points */
+    gap: 20px; /* Add spacing between image and points */
+    flex-wrap: wrap; /* Ensure responsiveness */
+    flex-direction: row-reverse;
+}
+
+.differentiators-image {
+    flex: 1; /* Take up 1 part of the space */
+    max-width: 600px; /* Limit the image width */
+    height: 560px; /* Set a fixed height */
+    margin-top: 70px;
+}
+
+.differentiators-image img {
+    width: 500px; /* Make the image responsive */
+    height: 250px; /* Maintain aspect ratio */
+    border-radius: 10px; /* Add rounded corners */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Add shadow for styling */
+    margin-top: 100px;
+}
+
+.differentiators-points {
+    flex: 2; /* Take up 2 parts of the space */
+    text-align: left; /* Align text to the left */
+}
+
+.differentiators-points h1 {
+    font-size: 36px; /* Large heading */
+    font-weight: bold; /* Bold text */
+    color: #ff5722; /* Highlighted color for the heading */
+    margin-bottom: 20px; /* Add spacing below the heading */
+}
+
+.differentiators-points ul {
+    list-style: none; /* Remove default list styling */
+    padding: 0; /* Remove padding */
+}
+
+.differentiators-points li {
+    font-size: 18px; /* Adjust font size */
+    margin-bottom: 10px; /* Add spacing between points */
+    padding-left: 25px; /* Add padding for custom bullet */
+    position: relative; /* For custom bullet positioning */
+}
+
+.differentiators-points li::before {
+    content: "?"; /* Custom bullet icon */
+    position: absolute;
+    left: 0; /* Position bullet on the left */
+    color: #ff5722; /* Bullet color */
+    font-size: 18px; /* Bullet size */
+    font-weight: bold; /* Make bullet bold */
+}
+
+/* CSS for the testimonials section */
+/* Get Started Button */
+.get-started {
+    text-align: left; /* Align the button to the left */
+    margin-top: 20px; /* Add spacing above the button */
+    margin-left: 30px;
+}
+
+.get-started-button {
+    background-color: #ff5722; /* Button background color */
+    color: white; /* Button text color */
+    font-size: 18px; /* Font size */
+    padding: 10px 20px; /* Add padding */
+    border: none; /* Remove border */
+    border-radius: 5px; /* Rounded corners */
+    cursor: pointer; /* Pointer cursor on hover */
+    transition: background-color 0.3s ease, transform 0.3s ease; /* Smooth hover effect */
+    text-decoration: none; /* Remove underline */
+    display: inline-block; /* Make it behave like a button */
+}
+
+.get-started-button:hover {
+    background-color: #e64a19; /* Darker background on hover */
+    transform: scale(1.05); /* Slightly enlarge the button on hover */
+   
+   
+}
+
+/* Contact Form */
+.contact-form-container {
+    display: none; /* Initially hide the form */
+    background-color: #f9f9f9; /* Light background */
+    padding: 30px; /* Add padding */
+    border-radius: 10px; /* Rounded corners */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Add shadow */
+    max-width: 500px; /* Limit form width */
+    margin: 30px auto; /* Center the form */
+    text-align: left; /* Align text to the left */
+    position: fixed;    /* Fixed position for the form */
+    top: 50%; /* Center vertically */
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 1000;
+    width: 400px;
+}
+
+/* Show the form and overlay when checkbox is checked */
+#toggleForm:checked ~ .overlay {
+    display: block; /* Show the overlay */
+}
+
+#toggleForm:checked ~ .contact-form-container {
+    display: block; /* Show the form */
+}
+
+
+.contact-form-container h2 {
+    font-size: 24px; /* Heading font size */
+    color: #ff5722; /* Highlighted color */
+    display: block;
+
+}
+
+.contact-form-container label {
+    display: block; /* Make labels block elements */
+    font-size: 16px; /* Label font size */
+    margin-bottom: 5px; /* Add spacing below labels */
+    color: #333; /* Dark text color */
+}
+
+.contact-form-container input,
+.contact-form-container textarea {
+    width: 100%; /* Full width */
+    padding: 10px; /* Add padding */
+    margin-bottom: 15px; /* Add spacing between fields */
+    border: 1px solid #ddd; /* Light border */
+    border-radius: 5px; /* Rounded corners */
+    font-size: 14px; /* Adjust font size */
+}
+
+.contact-form-container button {
+    background-color: #ff5722; /* Button background color */
+    color: white; /* Button text color */
+    font-size: 16px; /* Font size */
+    padding: 10px 20px; /* Add padding */
+    border: none; /* Remove border */
+    border-radius: 5px; /* Rounded corners */
+    cursor: pointer; /* Pointer cursor on hover */
+    transition: background-color 0.3s ease, transform 0.3s ease; /* Smooth hover effect */
+}
+
+.contact-form-container button:hover {
+    background-color: #e64a19; /* Darker background on hover */
+    transform: scale(1.05); /* Slightly enlarge the button on hover */
+}
+/* Overlay for dimming the background */
+.overlay {
+    display: none; /* Initially hidden */
+    position: fixed; /* Cover the entire screen */
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5); /* Semi-transparent black */
+    z-index: 999; /* Place it above all content */
+}
+/* Close Button */
+.close-button {
+    position: absolute; /* Position it inside the form */
+    top: 10px; /* Distance from the top */
+    right: 10px; /* Distance from the right */
+    font-size: 40px; /* Font size for the "X" */
+    color:#ff5722; /* Dark color for the button */
+    cursor: pointer; /* Pointer cursor on hover */
+    background: none; /* No background */
+    border: none; /* No border */
+    outline: none; /* Remove outline */
+    font-weight: bold; /* Bold text */
+    transition: color 0.3s ease; /* Smooth color change on hover */
+}
+
+.close-button:hover {
+    color: #ff5722; /* Highlighted color on hover */
+}
+
+/* Sign-Up Page Layout */
+.sign-up-page {
+    display: flex; /* Use Flexbox for layout */
+    height: 100vh; /* Full viewport height */
+    background-color: #f4f4f4; /* Light background color */
+    font-family: 'Arial', sans-serif; /* Clean font */
+}
+
+/* Left Side: Sign-Up Form */
+.sign-up-form {
+    flex: 1; /* Take up 1 part of the space */
+    background-color: #ffffff; /* White background */
+    padding: 50px; /* Add padding */
+    display: flex;
+    flex-direction: column;
+    justify-content: center; /* Center content vertically */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Add shadow */
+}
+
+.sign-up-form h1 {
+    font-size: 32px; /* Large heading */
+    color: #ff5722; /* Highlighted color */
+    margin-bottom: 20px; /* Add spacing below heading */
+}
+
+.sign-up-form label {
+    font-size: 16px; /* Label font size */
+    color: #333; /* Dark text color */
+    margin-bottom: 5px; /* Add spacing below labels */
+    display: block; /* Make labels block elements */
+}
+
+.sign-up-form input {
+    width: 100%; /* Full width */
+    padding: 10px; /* Add padding */
+    margin-bottom: 15px; /* Add spacing between fields */
+    border: 1px solid #ddd; /* Light border */
+    border-radius: 5px; /* Rounded corners */
+    font-size: 14px; /* Adjust font size */
+}
+
+.sign-up-form button {
+    background-color: #ff5722; /* Button background color */
+    color: white; /* Button text color */
+    font-size: 16px; /* Font size */
+    padding: 10px 20px; /* Add padding */
+    border: none; /* Remove border */
+    border-radius: 5px; /* Rounded corners */
+    cursor: pointer; /* Pointer cursor on hover */
+    transition: background-color 0.3s ease, transform 0.3s ease; /* Smooth hover effect */
+}
+
+.sign-up-form button:hover {
+    background-color: #e64a19; /* Darker background on hover */
+    transform: scale(1.05); /* Slightly enlarge the button on hover */
+}
+
+/* Right Side: Company Info */
+.company-info {
+    flex: 1; /* Take up 1 part of the space */
+    background-color: #ff5722; /* Highlighted background color */
+    color: white; /* White text color */
+    padding: 50px; /* Add padding */
+    display: flex;
+    flex-direction: column;
+    justify-content: center; /* Center content vertically */
+    text-align: left; /* Align text to the left */
+}
+
+.company-info h1 {
+    font-size: 32px; /* Large heading */
+    margin-bottom: 20px; /* Add spacing below heading */
+}
+
+.company-info p {
+    font-size: 18px; /* Paragraph font size */
+    margin-bottom: 20px; /* Add spacing below paragraph */
+}
+
+.company-info ul {
+    list-style: none; /* Remove default list styling */
+    padding: 0; /* Remove padding */
+}
+
+.company-info li {
+    font-size: 16px; /* List item font size */
+    margin-bottom: 10px; /* Add spacing between list items */
+    position: relative; /* For custom bullet positioning */
+    padding-left: 25px; /* Add padding for custom bullet */
+}
+
+.company-info li::before {
+    content: "?"; /* Custom bullet icon */
+    position: absolute;
+    left: 0; /* Position bullet on the left */
+    color: white; /* Bullet color */
+    font-size: 18px; /* Bullet size */
+    font-weight: bold; /* Make bullet bold */
+}
+
+
+/* Footer Styles */
+.footer {
+    background-color: #333; /* Dark background */
+    color: white; /* White text color */
+    padding: 60px 20px; /* Add padding */
+    font-family: 'Arial', sans-serif; /* Clean font */
+    width: 100%; /* Full viewport width */
+    position: relative; /* Ensure it stays within the page layout */
+    box-sizing: border-box; /* Include padding and border in width */
+}
+
+.footer-container {
+    display: flex; /* Use Flexbox for layout */
+    justify-content: space-between; /* Space between sections */
+    flex-wrap: wrap; /* Ensure responsiveness */
+    gap: 30px; /* Add spacing between sections */
+    width: 100%; /* Full width */
+}
+
+.footer-about,
+.footer-links,
+.footer-contact,
+.footer-newsletter {
+    flex: 1; /* Equal space for each section */
+    min-width: 250px; /* Minimum width for responsiveness */
+}
+
+.footer-about h2,
+.footer-links h2,
+.footer-contact h2,
+.footer-newsletter h2 {
+    font-size: 22px; /* Heading font size */
+    margin-bottom: 15px; /* Add spacing below heading */
+    color: #ff5722; /* Highlighted color */
+}
+
+.footer-about p,
+.footer-newsletter p {
+    font-size: 14px; /* Adjust font size */
+    line-height: 1.6; /* Improve readability */
+}
+
+.footer-links ul {
+    list-style: none; /* Remove default list styling */
+    padding: 0; /* Remove padding */
+}
+
+.footer-links li {
+    margin-bottom: 10px; /* Add spacing between links */
+}
+
+.footer-links a {
+    color: white; /* White text color */
+    text-decoration: none; /* Remove underline */
+    transition: color 0.3s ease; /* Smooth hover effect */
+}
+
+.footer-links a:hover {
+    color: #ff5722; /* Highlighted color on hover */
+}
+
+.footer-contact p {
+    font-size: 14px; /* Adjust font size */
+    margin-bottom: 10px; /* Add spacing between contact details */
+}
+
+.social-icons {
+    margin-top: 10px; /* Add spacing above icons */
+}
+
+.social-icons a {
+    color: white; /* White icon color */
+    font-size: 20px; /* Icon size */
+    margin-right: 10px; /* Add spacing between icons */
+    text-decoration: none; /* Remove underline */
+    transition: color 0.3s ease; /* Smooth hover effect */
+}
+
+.social-icons a:hover {
+    color: #ff5722; /* Highlighted color on hover */
+}
+
+/* Newsletter Section */
+.footer-newsletter form {
+    display: flex; /* Use Flexbox for layout */
+    gap: 10px; /* Add spacing between input and button */
+    margin-top: 10px; /* Add spacing above form */
+}
+
+.footer-newsletter input {
+    flex: 1; /* Take up available space */
+    padding: 10px; /* Add padding */
+    border: 1px solid #ddd; /* Light border */
+    border-radius: 5px; /* Rounded corners */
+    font-size: 14px; /* Adjust font size */
+}
+
+.footer-newsletter button {
+    background-color: #ff5722; /* Button background color */
+    color: white; /* Button text color */
+    font-size: 14px; /* Font size */
+    padding: 10px 20px; /* Add padding */
+    border: none; /* Remove border */
+    border-radius: 5px; /* Rounded corners */
+    cursor: pointer; /* Pointer cursor on hover */
+    transition: background-color 0.3s ease, transform 0.3s ease; /* Smooth hover effect */
+}
+
+.footer-newsletter button:hover {
+    background-color: #e64a19; /* Darker background on hover */
+    transform: scale(1.05); /* Slightly enlarge the button on hover */
+}
+html {
+    scroll-behavior: smooth; /* Smooth scrolling effect */
+}
+
+/* Footer Bottom */
+.footer-bottom {
+    text-align: center; /* Center align text */
+    margin-top: 30px; /* Add spacing above */
+    font-size: 14px; /* Adjust font size */
+    border-top: 1px solid #444; /* Add a top border */
+    padding-top: 10px; /* Add padding above text */
+}
+/* Contact Us Section */
+.contact-us-section {
+    padding: 50px 20px; /* Add padding for spacing */
+    background-color: #f9f9f9; /* Light background color */
+    color: #333; /* Dark text color */
+    font-family: 'Arial', sans-serif; /* Clean font */
+    text-align: center; /* Center align the text */
+}
+
+.contact-us-section h2 {
+    font-size: 28px; /* Heading font size */
+    color: #ff5722; /* Highlighted color */
+    margin-bottom: 20px; /* Add spacing below heading */
+}
+
+.contact-form {
+    max-width: 600px; /* Limit form width */
+    margin: 0 auto 30px; /* Center the form and add spacing below */
+    text-align: left; /* Align text to the left */
+}
+
+.contact-form label {
+    display: block; /* Make labels block elements */
+    font-size: 16px; /* Label font size */
+    margin-bottom: 5px; /* Add spacing below labels */
+    color: #333; /* Dark text color */
+}
+
+.contact-form input,
+.contact-form textarea {
+    width: 100%; /* Full width */
+    padding: 10px; /* Add padding */
+    margin-bottom: 15px; /* Add spacing between fields */
+    border: 1px solid #ddd; /* Light border */
+    border-radius: 5px; /* Rounded corners */
+    font-size: 14px; /* Adjust font size */
+}
+
+.contact-form button {
+    background-color: #ff5722; /* Button background color */
+    color: white; /* Button text color */
+    font-size: 16px; /* Font size */
+    padding: 10px 20px; /* Add padding */
+    border: none; /* Remove border */
+    border-radius: 5px; /* Rounded corners */
+    cursor: pointer; /* Pointer cursor on hover */
+    transition: background-color 0.3s ease, transform 0.3s ease; /* Smooth hover effect */
+}
+
+.contact-form button:hover {
+    background-color: #e64a19; /* Darker background on hover */
+    transform: scale(1.05); /* Slightly enlarge the button on hover */
+}
+
+.map-container {
+    margin-top: 30px; /* Add spacing above the map */
+}
+
+.map-container h3 {
+    font-size: 22px; /* Map heading font size */
+    color: #333; /* Dark text color */
+    margin-bottom: 15px; /* Add spacing below heading */
+}
+
+</style>
+   
+</head>
+<body>
+    <div class="navbar">
+        	<div > <a href="Index.html"><img src="Simple.png" alt="company-logo" class="Simple"></a> </div>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+			<div class="menu">
+				<ul>
+                <li><div class="contact-item">
+                    <a href="Index.html"><font color="white">Home</font></a></div></li>
+				<li><div class="contact-item">
+					<a href="Python.html"><font color="white">Python</font></a></div></li>
+				<li><div class="contact-item">
+					<a href="HTML.html"><font color="white">HTML</font></a></div></li>
+				<li><div class="contact-item">
+					<a href="Css.html"><font color="white">Css</font></a></div></li>
+				<li><div class="contact-item">
+					<a href="C.html"><font color="white">C</font></a></div></li>
+				<li><div class="contact-item">
+					<a href="Games.html"><font color="white">Games</font></a></div></li>
+				</ul>
+			</div>
+	</div>
+    <div class="sidebar">
+            <a href="#introduction">Introduction</a><br>
+            <a href="#getting-started">Getting Started</a><br>
+            <a href="#syntax">Syntax</a><br>
+            <a href="#comments">Comments</a><br>
+            <a href="#variables">Variables</a><br>
+            <a href="#data-types">Data Types</a><br>
+            <a href="#numbers">Numbers</a><br>
+            <a href="#casting">Casting</a><br>
+            <a href="#strings">Strings</a><br>
+            <a href="#booleans">Booleans</a><br>
+            <a href="#operators">Operators</a><br>
+            <a href="#lists">Lists</a><br>
+            <a href="#tuples">Tuples</a><br>
+            <a href="#sets">Sets</a><br>
+            <a href="#dictionaries">Dictionaries</a><br>
+            <a href="#if-else">If...Else</a><br>
+            <a href="#while-loops">While Loops</a><br>
+            <a href="#for-loops">For Loops</a><br>
+            <a href="#break">Break</a><br>
+            <a href="#continue">Continue</a><br>
+            <a href="#range">Range</a><br>
+            <a href="#functions">Functions</a><br>
+            <a href="#lambda">Lambda</a><br>
+            <hr>
+    </div>
+    <div class="content">
+        <font color="black">
+            <h3>What You Will Learn</h3>
+            <ul>
+            <li><b>Introduction:</b> Overview of Python and its uses.</li>
+            <li><b>Getting Started:</b> How to install Python and run your first program.</li>
+            <li><b>Syntax:</b> Basic rules for writing Python code.</li>
+            <li><b>Comments:</b> How to write single-line and multi-line comments.</li>
+            <li><b>Variables:</b> Creating and using variables in Python.</li>
+            <li><b>Data Types:</b> Understanding different types like int, float, str, etc.</li>
+            <li><b>Numbers:</b> Working with integers, floats, and complex numbers.</li>
+            <li><b>Casting:</b> Converting between data types.</li>
+            <li><b>Strings:</b> Manipulating text data.</li>
+            <li><b>Booleans:</b> Using True and False values.</li>
+            <li><b>Operators:</b> Performing calculations and comparisons.</li>
+            <li><b>Lists:</b> Storing multiple items in a list.</li>
+            <li><b>Tuples:</b> Using immutable sequences.</li>
+            <li><b>Sets:</b> Working with unique items.</li>
+            <li><b>Dictionaries:</b> Storing key-value pairs.</li>
+            <li><b>If...Else:</b> Making decisions in code.</li>
+            <li><b>While Loops:</b> Repeating actions while a condition is true.</li>
+            <li><b>For Loops:</b> Iterating over sequences.</li>
+            <li><b>Break:</b> Exiting loops early.</li>
+            <li><b>Continue:</b> Skipping to the next loop iteration.</li>
+            <li><b>Range:</b> Generating sequences of numbers.</li>
+            <li><b>Functions:</b> Creating reusable blocks of code.</li>
+            <li><b>Lambda:</b> Writing anonymous functions.</li>
+            </ul>
+            <hr>
+            <h3 id="introduction">Introduction</h3>
+            <p>Python is a versatile, beginner-friendly programming language used in web development, data science, automation, and more.</p>
+            <hr>
+            <h3 id="getting-started">Getting Started</h3>
+            <p>Download Python from <a href="https://www.python.org/">python.org</a>, install it, and run your first program:</p>
+            <pre>
+            print("Hello, World!")
+            </pre>
+            <p>Another example:</p>
+            <pre>
+            print("Welcome to Python programming!")
+            </pre>
+            <hr>
+            <h3>Python Online Compiler</h3>
+            <p>Try Python code instantly below:</p>
+            <iframe src="https://www.programiz.com/python-programming/online-compiler/" width="100%" height="400" style="border:1px solid #ccc;"></iframe>
+            <hr>
+            <h3 id="syntax">Syntax</h3>
+            <p>Python uses indentation to define code blocks. Statements end with a newline, not a semicolon.</p>
+            <pre>
+            if True:
+                print("Indented block")
+            </pre>
+            <hr>
+            <h3 id="comments">Comments</h3>
+            <p>Use <code>#</code> for single-line comments and <code>''' ... '''</code> for multi-line comments.</p>
+            <pre>
+            # This is a comment
+            '''
+            This is a
+            multi-line comment
+            '''
+            </pre>
+            <hr>
+            <h3 id="variables">Variables</h3>
+            <p>Variables store data. No need to declare type:</p>
+            <pre>
+            x = 5
+            name = "Alice"
+            </pre>
+            <hr>
+            <h3 id="data-types">Data Types</h3>
+            <p>Common types: int, float, str, bool, list, tuple, set, dict.</p>
+            <pre>
+            a = 10      # int
+            b = 3.14    # float
+            c = "text"  # str
+            d = True    # bool
+            </pre>
+            <hr>
+            <h3 id="numbers">Numbers</h3>
+            <p>Python supports integers, floats, and complex numbers.</p>
+            <pre>
+            a = 10
+            b = 3.14
+            c = 2 + 3j
+            </pre>
+            <hr>
+            <h3 id="casting">Casting</h3>
+            <p>Convert between types using <code>int()</code>, <code>float()</code>, <code>str()</code>:</p>
+            <pre>
+            x = int(3.5)
+            y = str(10)
+            </pre>
+            <hr>
+            <h3 id="strings">Strings</h3>
+            <p>Strings are sequences of characters. Use single or double quotes.</p>
+            <pre>
+            text = "Hello"
+            print(text[0])  # H
+            </pre>
+            <hr>
+            <h3 id="booleans">Booleans</h3>
+            <p>Boolean values are <code>True</code> and <code>False</code>.</p>
+            <pre>
+            is_active = True
+            </pre>
+            <hr>
+            <h3 id="operators">Operators</h3>
+            <p>Python supports arithmetic, comparison, logical, assignment, and more operators.</p>
+            <pre>
+            a = 5 + 3
+            b = a > 2
+            c = a and b
+            </pre>
+            <hr>
+            <h3 id="lists">Lists</h3>
+            <p>Lists store multiple items:</p>
+            <pre>
+            fruits = ["apple", "banana", "cherry"]
+            print(fruits[1])
+            </pre>
+            <hr>
+            <h3 id="tuples">Tuples</h3>
+            <p>Tuples are like lists but immutable:</p>
+            <pre>
+            coordinates = (10, 20)
+            </pre>
+            <hr>
+            <h3 id="sets">Sets</h3>
+            <p>Sets store unique items:</p>
+            <pre>
+            colors = {"red", "green", "blue"}
+            </pre>
+            <hr>
+            <h3 id="dictionaries">Dictionaries</h3>
+            <p>Dictionaries store key-value pairs:</p>
+            <pre>
+            person = {"name": "John", "age": 30}
+            print(person["name"])
+            </pre>
+            <hr>
+            <h3 id="if-else">If...Else</h3>
+            <p>Conditional statements:</p>
+            <pre>
+            x = 10
+            if x > 5:
+                print("x is greater than 5")
+            else:
+                print("x is 5 or less")
+            </pre>
+            <hr>
+            <h3 id="while-loops">While Loops</h3>
+            <p>Repeat code while a condition is true:</p>
+            <pre>
+            count = 0
+            while count < 5:
+                print(count)
+                count += 1
+            </pre>
+            <hr>
+            <h3 id="for-loops">For Loops</h3>
+            <p>Iterate over sequences:</p>
+            <pre>
+            for i in range(5):
+                print(i)
+            </pre>
+            <hr>
+            <h3 id="break">Break</h3>
+            <p>Exit a loop early:</p>
+            <pre>
+            for i in range(10):
+                if i == 5:
+                    break
+                print(i)
+            </pre>
+            <hr>
+            <h3 id="continue">Continue</h3>
+            <p>Skip to the next iteration:</p>
+            <pre>
+            for i in range(5):
+                if i == 2:
+                    continue
+                print(i)
+            </pre>
+            <hr>
+            <h3 id="range">Range</h3>
+            <p>Generate a sequence of numbers:</p>
+            <pre>
+            for i in range(1, 6):
+                print(i)
+            </pre>
+            <hr>
+            <h3 id="functions">Functions</h3>
+            <p>Define reusable code blocks:</p>
+            <pre>
+            def greet(name):
+                print("Hello, " + name)
+
+            greet("Alice")
+            </pre>
+            <hr>
+            <h3 id="lambda">Lambda</h3>
+            <p>Anonymous functions:</p>
+            <pre>
+            add = lambda a, b: a + b
+            print(add(2, 3))
+            </pre>
+            <hr>
+print("Hello, World!")
+            </pre>
+            <hr>
+            <h3>Syntax</h3>
+            <p>Python uses indentation to define code blocks. Statements end with a newline, not a semicolon.</p>
+            <hr>
+            <h3>Comments</h3>
+            <p>Use <code>#</code> for single-line comments and <code>''' ... '''</code> for multi-line comments.</p>
+            <pre>
+# This is a comment
+'''
+This is a
+multi-line comment
+'''
+            </pre>
+            <hr>
+            <h3>Variables</h3>
+            <p>Variables store data. No need to declare type:</p>
+            <pre>
+x = 5
+name = "Alice"
+            </pre>
+            <hr>
+            <h3>Data Types</h3>
+            <p>Common types: int, float, str, bool, list, tuple, set, dict.</p>
+            <hr>
+            <h3>Numbers</h3>
+            <p>Python supports integers, floats, and complex numbers.</p>
+            <pre>
+a = 10
+b = 3.14
+c = 2 + 3j
+            </pre>
+            <hr>
+            <h3>Casting</h3>
+            <p>Convert between types using <code>int()</code>, <code>float()</code>, <code>str()</code>:</p>
+            <pre>
+x = int(3.5)
+y = str(10)
+            </pre>
+            <hr>
+            <h3>Strings</h3>
+            <p>Strings are sequences of characters. Use single or double quotes.</p>
+            <pre>
+text = "Hello"
+print(text[0])  # H
+            </pre>
+            <hr>
+            <h3>Booleans</h3>
+            <p>Boolean values are <code>True</code> and <code>False</code>.</p>
+            <pre>
+is_active = True
+            </pre>
+            <hr>
+            <h3>Operators</h3>
+            <p>Python supports arithmetic, comparison, logical, assignment, and more operators.</p>
+            <pre>
+a = 5 + 3
+b = a > 2
+c = a and b
+            </pre>
+            <hr>
+            <h3>Lists</h3>
+            <p>Lists store multiple items:</p>
+            <pre>
+fruits = ["apple", "banana", "cherry"]
+print(fruits[1])
+            </pre>
+            <hr>
+            <h3>Tuples</h3>
+            <p>Tuples are like lists but immutable:</p>
+            <pre>
+coordinates = (10, 20)
+            </pre>
+            <hr>
+            <h3>Sets</h3>
+            <p>Sets store unique items:</p>
+            <pre>
+colors = {"red", "green", "blue"}
+            </pre>
+            <hr>
+            <h3>Dictionaries</h3>
+            <p>Dictionaries store key-value pairs:</p>
+            <pre>
+person = {"name": "John", "age": 30}
+print(person["name"])
+            </pre>
+            <hr>
+            <h3>If...Else</h3>
+            <p>Conditional statements:</p>
+            <pre>
+x = 10
+if x > 5:
+    print("x is greater than 5")
+else:
+    print("x is 5 or less")
+            </pre>
+            <hr>
+            <h3>While Loops</h3>
+            <p>Repeat code while a condition is true:</p>
+            <pre>
+count = 0
+while count < 5:
+    print(count)
+    count += 1
+            </pre>
+            <hr>
+            <h3>For Loops</h3>
+            <p>Iterate over sequences:</p>
+            <pre>
+for i in range(5):
+    print(i)
+            </pre>
+            <hr>
+            <h3>Break</h3>
+            <p>Exit a loop early:</p>
+            <pre>
+for i in range(10):
+    if i == 5:
+        break
+    print(i)
+            </pre>
+            <hr>
+            <h3>Continue</h3>
+            <p>Skip to the next iteration:</p>
+            <pre>
+for i in range(5):
+    if i == 2:
+        continue
+    print(i)
+            </pre>
+            <hr>
+            <h3>Range</h3>
+            <p>Generate a sequence of numbers:</p>
+            <pre>
+for i in range(1, 6):
+    print(i)
+            </pre>
+            <hr>
+            <h3>Functions</h3>
+            <p>Define reusable code blocks:</p>
+            <pre>
+def greet(name):
+    print("Hello, " + name)
+
+greet("Alice")
+            </pre>
+            <hr>
+            <h3>Lambda</h3>
+            <p>Anonymous functions:</p>
+            <pre>
+add = lambda a, b: a + b
+print(add(2, 3))
+            </pre>
+        </font>
+        </div>
+        <div>
+	<footer class="footer">
+    		<div class="footer-container">
+    		</div>
+    		<div class="footer-bottom">
+        		<p>&copy; 2025 Simple. All rights reserved.</p>
+    		</div>
+	</footer>
+    </div>
+    </div>
+</body>
+</html>
